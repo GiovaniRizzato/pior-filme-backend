@@ -10,8 +10,12 @@ import java.util.Collection;
 @RestController
 public class MovieController {
 
-    @Autowired
     private final MovieService movieService;
+
+    @Autowired
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping("/pior-filmes")
     public Collection<Movie> getPiorFilmes() {

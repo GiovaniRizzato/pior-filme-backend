@@ -22,11 +22,7 @@ public class MovieService {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                Movie movie = new Movie();
-                movie.setTitle(data[0]);
-                movie.setYear(Integer.parseInt(data[1]));
-                movie.setCategory(data[2]);
-                this.movies.add(movie);
+                this.movies.add(new Movie(data[0], data[1], Integer.parseInt(data[2])));
             }
         } catch (Exception e) {
             e.printStackTrace();
