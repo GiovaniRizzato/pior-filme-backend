@@ -1,9 +1,9 @@
-package br.com.goldenraspberryawards.service;
+package br.com.goldenraspberryawards.worstmovie.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.goldenraspberryawards.model.Movie;
+import br.com.goldenraspberryawards.worstmovie.model.Movie;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

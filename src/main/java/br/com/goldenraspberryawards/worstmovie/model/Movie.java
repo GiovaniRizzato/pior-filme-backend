@@ -1,4 +1,4 @@
-package br.com.goldenraspberryawards.model;
+package br.com.goldenraspberryawards.worstmovie.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
