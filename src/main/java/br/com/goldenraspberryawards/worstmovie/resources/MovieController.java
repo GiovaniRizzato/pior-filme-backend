@@ -6,21 +6,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.goldenraspberryawards.worstmovie.model.Movie;
 import br.com.goldenraspberryawards.worstmovie.service.MovieService;
+import br.com.goldenraspberryawards.worstmovie.service.MovieService.ReturnClass;
 
 import java.util.Collection;
 
 @RestController
 public class MovieController {
 
-    private final MovieService movieService;
-
     @Autowired
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
-    }
+    private MovieService movieService;
 
     @GetMapping("/movies")
-    public Collection<Movie> getPiorFilmes() {
+    public ReturnClass getPiorFilmes() {
         return movieService.getPiorFilmes();
     }
 }
