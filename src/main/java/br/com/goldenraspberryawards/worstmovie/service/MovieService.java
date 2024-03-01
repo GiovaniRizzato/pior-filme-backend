@@ -17,12 +17,19 @@ import java.util.List;
 @Service
 public class MovieService {
 
+    public class ProducerWinningGap{
+        public String producer;
+        public int interval;
+        public int previousWin;
+        public int followingWin;
+    }
+
 	private final List<Movie> movies = new ArrayList<>();
 
     @Autowired
     private ResourceLoader resourceLoader;
 
-    public ReturnClass getPiorFilmes() {  
+    public ProducerWinningGap getPiorFilmes() {  
         return this.getBiggestGap();
     }
 
@@ -41,16 +48,9 @@ public class MovieService {
         }
     }
 
-    public class ReturnClass{
-        public String producer;
-        public int interval;
-        public int previousWin;
-        public int followingWin;
-    }
-
-    private ReturnClass getBiggestGap(){
+    private ProducerWinningGap getBiggestGap(){
         int biggestConsecutiveWinGaps = 0;
-        final ReturnClass returnClass = new ReturnClass();
+        final ProducerWinningGap producerWinningGap = new ProducerWinningGap();
         for(int i=0; i<(this.movies.size() - 1); i++){
             final Movie previousWinEntry = this.movies.get(i);
             for(int j=(i+1); j<this.movies.size(); j++){
@@ -58,10 +58,10 @@ public class MovieService {
                 if(previousWinEntry.getProducer().equals(followingWinEntry.getProducer())){
                     final int yearGap = followingWinEntry.getYear() - previousWinEntry.getYear();
                     if(yearGap > biggestConsecutiveWinGaps){
-                        returnClass.producer = previousWinEntry.getProducer();
-                        returnClass.interval = yearGap;
-                        returnClass.previousWin = previousWinEntry.getYear();
-                        returnClass.followingWin = followingWinEntry.getYear();                        
+                        producerWinningGap.producer = previousWinEntry.getProducer();
+                        producerWinningGap.interval = yearGap;
+                        producerWinningGap.previousWin = previousWinEntry.getYear();
+                        producerWinningGap.followingWin = followingWinEntry.getYear();                        
                     }
 
                     break;
@@ -69,6 +69,6 @@ public class MovieService {
             }
         }
 
-        return returnClass;
+        return producerWinningGap;
     }
 }

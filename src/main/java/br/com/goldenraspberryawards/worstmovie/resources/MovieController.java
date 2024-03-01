@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.goldenraspberryawards.worstmovie.model.Movie;
 import br.com.goldenraspberryawards.worstmovie.service.MovieService;
-import br.com.goldenraspberryawards.worstmovie.service.MovieService.ReturnClass;
-
-import java.util.Collection;
+import br.com.goldenraspberryawards.worstmovie.service.MovieService.ProducerWinningGap;
 
 @RestController
 public class MovieController {
@@ -17,7 +14,7 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping("/movies")
-    public ReturnClass getPiorFilmes() {
+    public ProducerWinningGap getPiorFilmes() {
         return movieService.getPiorFilmes();
     }
 }
