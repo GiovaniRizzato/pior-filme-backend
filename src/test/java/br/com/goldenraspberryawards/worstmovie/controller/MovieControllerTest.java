@@ -1,10 +1,8 @@
-package br.com.goldenraspberryawards.worstmovie.resource;
+package br.com.goldenraspberryawards.worstmovie.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +17,21 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class MovieResourceTest {
+class MovieControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @BeforeEach
-    public void mockCsvFile() throws IOException{
+	@Test
+	void getProducerWithBiggestConsecutiveGapTest() throws Exception {
         final File resourcesDirectory = new File("src/test/resources/csv/movies-test.csv");
 
         final Resource mockResource = Mockito.mock(Resource.class);
         final ResourceLoader resourceLoader = Mockito.mock(ResourceLoader.class);
         
-        Mockito.when(mockResource.getInputStream()).thenReturn(new FileInputStream(resourcesDirectory.getPath()));
         Mockito.when(resourceLoader.getResource(Mockito.anyString())).thenReturn(mockResource);
-    }
+        Mockito.when(mockResource.getInputStream()).thenReturn(new FileInputStream(resourcesDirectory));
 
-	@Test
-	void getProducerWithBiggestConsecutiveGapTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/gap")
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk())

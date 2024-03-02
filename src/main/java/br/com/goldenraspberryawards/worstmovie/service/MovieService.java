@@ -58,6 +58,7 @@ public class MovieService {
                 if(previousWinEntry.getProducer().equals(followingWinEntry.getProducer())){
                     final int yearGap = followingWinEntry.getYear() - previousWinEntry.getYear();
                     if(yearGap > biggestConsecutiveWinGaps){
+                        biggestConsecutiveWinGaps = yearGap;
                         producerWinningGap.producer = previousWinEntry.getProducer();
                         producerWinningGap.interval = yearGap;
                         producerWinningGap.previousWin = previousWinEntry.getYear();
