@@ -8,13 +8,13 @@ import br.com.goldenraspberryawards.worstmovie.service.MovieService;
 import br.com.goldenraspberryawards.worstmovie.service.MovieService.ProducerWinningGap;
 
 @RestController
-public class MovieController {
+public class MovieResource {
 
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/movies")
-    public ProducerWinningGap getPiorFilmes() {
+    @GetMapping("/gap")
+    public ProducerWinningGap getProducerWithBiggestConsecutiveGap() {
         return movieService.getPiorFilmes();
     }
 }

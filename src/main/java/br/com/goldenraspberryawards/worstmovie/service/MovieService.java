@@ -35,7 +35,7 @@ public class MovieService {
 
     @PostConstruct
     public void init(){
-        final Resource resource = this.resourceLoader.getResource("classpath:csv/movies.csv");
+        Resource resource = this.resourceLoader.getResource("classpath:csv/movies.csv");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
