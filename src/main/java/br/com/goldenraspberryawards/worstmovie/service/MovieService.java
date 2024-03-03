@@ -1,6 +1,8 @@
 package br.com.goldenraspberryawards.worstmovie.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -26,8 +28,8 @@ public class MovieService {
 
 	private final List<Movie> movies = new ArrayList<>();
 
-    @Autowired
-    private ResourceLoader resourceLoader;
+    @Value("classpath:csv/movies.csv")
+    private Resource resource;
 
     public ProducerWinningGap getPiorFilmes() {  
         return this.getBiggestGap();
@@ -35,7 +37,6 @@ public class MovieService {
 
     @PostConstruct
     public void init(){
-        Resource resource = this.resourceLoader.getResource("classpath:csv/movies.csv");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
