@@ -1,6 +1,6 @@
 # Raspberry Award Tracking System
 
-Bem-vindo ao repositório do projeto Raspberry Award Tracking System! Este projeto consiste em uma API Spring Boot, desenvolvida para verificar qual o produtor com maior intervalo entre dois premios *Raspberry Award*, confome a especificação presenta na [Documentação](documentacao\Especificação Backend.pdf).
+Bem-vindo ao repositório do projeto Raspberry Award Tracking System! Este projeto consiste em uma API Spring Boot, desenvolvida para verificar qual o produtor com maior intervalo entre dois premios *Raspberry Award*, confome a especificação presenta na [Documentação](documentacao\Especificação.pdf).
 
 ## Tecnologias Utilizadas 🛠️
 
