@@ -1,6 +1,6 @@
 # Raspberry Award Tracking System
 
-Bem-vindo ao repositório do projeto NPVet! Este projeto consiste em uma API Spring Boot integrada com um banco de dados PostgreSQL, desenvolvida para um sistema de gestão de hospital veterinário. Aqui estão as instruções para configurar o ambiente de desenvolvimento e implantação em produção.
+Bem-vindo ao repositório do projeto Raspberry Award Tracking System! Este projeto consiste em uma API Spring Boot, desenvolvida para verificar qual o produtor com maior intervalo entre dois premios *Raspberry Award*, confome a especificação presenta na [Documentação](documentacao\Especificação Backend.pdf).
 
 ## Tecnologias Utilizadas 🛠️
 
@@ -24,4 +24,4 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
    mvn dependency:resolve
    mvn spring-boot:run
    ```
-4. Acesse a API em http://localhost:8080,
+4. Acesse o Endpoint GET em http://localhost:8080/movies?projection=max-win-interval-for-producers,
