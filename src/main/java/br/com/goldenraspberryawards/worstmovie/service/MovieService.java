@@ -1,10 +1,7 @@
 package br.com.goldenraspberryawards.worstmovie.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import br.com.goldenraspberryawards.worstmovie.model.Movie;
@@ -31,8 +28,8 @@ public class MovieService {
     @Value("classpath:csv/movies.csv")
     private Resource resource;
 
-    public ProducerWinningGap getPiorFilmes() {  
-        return this.getBiggestGap();
+    public ProducerWinningGap getBiggestProducerWinningGap() {  
+        return this.searchBiggestProducerWinningGap();
     }
 
     @PostConstruct
@@ -49,7 +46,7 @@ public class MovieService {
         }
     }
 
-    private ProducerWinningGap getBiggestGap(){
+    private ProducerWinningGap searchBiggestProducerWinningGap(){
         int biggestConsecutiveWinGaps = 0;
         final ProducerWinningGap producerWinningGap = new ProducerWinningGap();
         for(int i=0; i<(this.movies.size() - 1); i++){
