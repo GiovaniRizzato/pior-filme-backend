@@ -17,7 +17,7 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
    ```bash
    git clone https://github.com/GiovaniRizzato/pior-filme-backend.git
    ```
-2. Subistitua o arquivo 'src\main\resources\csv\movies.csv\movies.csv' [Aqui](src/main/resources/csv/movies.csv);
+2. Subistitua o arquivo 'src\main\resources\csv\movies.csv' [Aqui](src/main/resources/csv/movies.csv);
 3. Rodar a aplicação utilizando a IDE Springboot de sua preferencia ou insira os comandos:
 
    ```bash
