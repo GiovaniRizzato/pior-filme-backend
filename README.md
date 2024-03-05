@@ -15,7 +15,7 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 1. Clone este repositório para o seu computador:
 
    ```bash
-   git clone https://github.com/seu-usuario/npvet-backend.git
+   git clone https://github.com/GiovaniRizzato/pior-filme-backend.git
    ```
 2. Subistitua o arquivo 'src\main\resources\csv\movies.csv\movies.csv' [Aqui](src/main/resources/csv/movies.csv);
 3. Rodar a aplicação utilizando a IDE Springboot de sua preferencia ou insira os comandos:
