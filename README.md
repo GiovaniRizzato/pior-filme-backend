@@ -15,7 +15,12 @@ Welcome to the Raspberry Award Tracking System project repository! This project 
    git clone https://github.com/GiovaniRizzato/pior-filme-backend.git
    ```
 
-2. If necessary, replace the data in file at 'src\main\resources\csv\movies.csv' [Here](src/main/resources/csv/movies.csv), falloing the format:
+2. If necessary, replace the data in file at 'src\main\resources\csv\movies.csv' [Here](src/main/resources/csv/movies.csv), following the format:
+   |   |   |   |
+   | - | - | - |
+   | Film  | Producer | 1995 |
+   | Film returns  | Producer | 1997 |
+   | Film 3: yet again?!  | Another Producer | 2003 |
 
 3. Run the application using the Springboot IDE of your choice or enter the commands:
    ```bash
