@@ -1,27 +1,40 @@
 # Raspberry Award Tracking System
 
-Bem-vindo ao repositório do projeto Raspberry Award Tracking System! Este projeto consiste em uma API Spring Boot, desenvolvida para verificar qual o produtor com maior intervalo entre dois premios *Raspberry Award*, confome a especificação presenta na [Documentação](documentacao\Especificação.pdf).
+Welcome to the Raspberry Award Tracking System project repository! This project consists of a Spring Boot API, developed to check which producer has the longest interval between two *Raspberry Awards*, according to the specification presented in [Documentation (PT-br)](documentacao\Especificação.pdf).
 
-## Tecnologias Utilizadas 🛠️
+## Technologies Used 🛠️
 
 [![Java](https://img.shields.io/badge/java-%233a75b0.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/pt-BR/)
 [![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/)
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/)
 
-## Utilizando a solução 🚀
+## Using the solution 🚀
 
-Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
-
-1. Clone este repositório para o seu computador:
-
+1. Clone this repository to your computer:
    ```bash
    git clone https://github.com/GiovaniRizzato/pior-filme-backend.git
    ```
-2. Subistitua o arquivo 'src\main\resources\csv\movies.csv' [Aqui](src/main/resources/csv/movies.csv);
-3. Rodar a aplicação utilizando a IDE Springboot de sua preferencia ou insira os comandos:
 
+2. If necessary, replace the data in file at 'src\main\resources\csv\movies.csv' [Here](src/main/resources/csv/movies.csv), falloing the format:
+
+3. Run the application using the Springboot IDE of your choice or enter the commands:
    ```bash
    mvn dependency:resolve
    mvn spring-boot:run
    ```
-4. Acesse o Endpoint GET em http://localhost:8080/movies?projection=max-win-interval-for-producers,
+
+## List of endpoints and Models :clipboard:
+
+| Method  |                       URL                          |                      Response Body                    | Description |
+| ------- | ---------------------------------------------------| ----------------------------------------------------- | ----------- |
+| `GET`   | `/movies?projection=max-win-interval-for-producers`| [Producer Winning Gap DTO](#producer-winning-gap-dto) | Retrieve the producer with the biggest gap between two awards.|
+
+#### Producer Winning Gap DTO
+  ```Typescript
+  {
+    producer: string,
+    interval: string,
+    previousWin: number,
+    followingWin: number,
+  }
+  ```
