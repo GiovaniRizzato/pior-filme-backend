@@ -5,6 +5,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import br.com.goldenraspberryawards.worstmovie.model.Movie;
+import br.com.goldenraspberryawards.worstmovie.model.ProducerWinningGap;
 import jakarta.annotation.PostConstruct;
 
 import java.io.BufferedReader;
@@ -15,14 +16,6 @@ import java.util.List;
 
 @Service
 public class MovieService {
-
-    public class ProducerWinningGap{
-        public String producer;
-        public int interval;
-        public int previousWin;
-        public int followingWin;
-    }
-
 	private final List<Movie> movies = new ArrayList<>();
 
     @Value("classpath:csv/movies.csv")
@@ -57,10 +50,10 @@ public class MovieService {
                     final int yearGap = followingWinEntry.getYear() - previousWinEntry.getYear();
                     if(yearGap > biggestConsecutiveWinGaps){
                         biggestConsecutiveWinGaps = yearGap;
-                        producerWinningGap.producer = previousWinEntry.getProducer();
-                        producerWinningGap.interval = yearGap;
-                        producerWinningGap.previousWin = previousWinEntry.getYear();
-                        producerWinningGap.followingWin = followingWinEntry.getYear();                        
+                        producerWinningGap.setProducer(previousWinEntry.getProducer());
+                        producerWinningGap.setInterval(yearGap);
+                        producerWinningGap.setPreviousWin(previousWinEntry.getYear());
+                        producerWinningGap.setFollowingWin(followingWinEntry.getYear());                        
                     }
 
                     break;
