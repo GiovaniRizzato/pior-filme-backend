@@ -16,11 +16,11 @@ Welcome to the Raspberry Award Tracking System project repository! This project 
    ```
 
 2. If necessary, replace the data in file at [src\main\resources\csv\movies.csv](src/main/resources/csv/movies.csv), following the format, as the exemple:
-   |   |   |   |
-   | - | - | - |
-   | Film  | Producer | 1995 |
-   | Film returns  | Producer | 1997 |
-   | Film 3: yet again?!  | Another Producer | 2003 |
+   | year | title | studios | producers | winner |
+   | ---- | ----- | ------- | --------- | ------ |
+   | 1980 | Can't Stop the Music | Associated Film Distribution | Allan Carr | yes |
+   | 1980 | Cruising | Lorimar Productions, United Artists | Jerry Weintraub | |
+   | 1981 | The Formula | MGM and United Artists | Steve Shagan | |
 
 3. Run the application using the Springboot IDE of your choice or enter the commands:
    ```bash
@@ -30,16 +30,21 @@ Welcome to the Raspberry Award Tracking System project repository! This project 
 
 ## List of endpoints and Models :clipboard:
 
-| Method  |                       URL                          |                      Response Body                    | Description |
-| ------- | ---------------------------------------------------| ----------------------------------------------------- | ----------- |
-| `GET`   | `/movies?projection=max-win-interval-for-producers`| [Producer Winning Gap DTO](#producer-winning-gap-dto) | Retrieve the producer with the biggest gap between two awards.|
+| Method  |                         URL                            |                      Response Body                    |
+| ------- | -------------------------------------------------------| ----------------------------------------------------- |
+| `GET`   | `/movies?projection=min-max-win-interval-for-producers`| [Producer Winning Gap DTO](#producer-winning-gap-dto) |
 
 #### Producer Winning Gap DTO
-  ```Typescript
-  {
-    producer: string,
-    interval: string,
-    previousWin: number,
-    followingWin: number,
-  }
-  ```
+   ```Typescript
+   {
+      min: ProducerWinning[],
+      min: ProducerWinning[],
+   };
+
+   ProducerWinning = {
+      producer: string,
+      interval: string,
+      previousWin: number,
+      followingWin: number,
+   };
+   ```
