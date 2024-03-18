@@ -15,7 +15,7 @@ Welcome to the Raspberry Award Tracking System project repository! This project 
    git clone https://github.com/GiovaniRizzato/pior-filme-backend.git
    ```
 
-2. If necessary, replace the data in file at [src\main\resources\csv\movies.csv](src/main/resources/csv/movies.csv), following the format, as the exemple:
+2. If necessary, replace the data in file at [src\main\resources\csv\movielist.csv](src/main/resources/csv/movielist.csv), following the format, as the exemple:
    | year | title | studios | producers | winner |
    | ---- | ----- | ------- | --------- | ------ |
    | 1980 | Can't Stop the Music | Associated Film Distribution | Allan Carr | yes |
