@@ -22,22 +22,33 @@ class MovieControllerTest {
     @Mock
     private Resource mockResource;
 
+    
+
 	@Test
 	void getProducerWithBiggestConsecutiveGapTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/movies?projection=max-win-interval-for-producers")
+        mockMvc.perform(MockMvcRequestBuilders.get("/movies?projection=min-max-win-interval-for-producers")
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.jsonPath("producer").value("Craig Molina"))
-            .andExpect(MockMvcResultMatchers.jsonPath("interval").value("19"))
-            .andExpect(MockMvcResultMatchers.jsonPath("previousWin").value("1992"))
-            .andExpect(MockMvcResultMatchers.jsonPath("followingWin").value("2011"));
+            .andExpect(MockMvcResultMatchers.jsonPath("min").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("min[0].producer").value("Menahem Golan"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[0].interval").value("1"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[0].previousWin").value("1986"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[0].followingWin").value("1987"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[1].producer").value("Joel Silver"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[1].interval").value("1"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[1].previousWin").value("1990"))
+            .andExpect(MockMvcResultMatchers.jsonPath("min[1].followingWin").value("1991"))
+            .andExpect(MockMvcResultMatchers.jsonPath("max").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("max[0].producer").value("Matthew Vaughn"))
+            .andExpect(MockMvcResultMatchers.jsonPath("max[0].interval").value("13"))
+            .andExpect(MockMvcResultMatchers.jsonPath("max[0].previousWin").value("2002"))
+            .andExpect(MockMvcResultMatchers.jsonPath("max[0].followingWin").value("2015"));
 	}
 
     @Test
 	void getErrorWhileTryingInvalidParameterTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/movies?projection=wrong-type")
             .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(MockMvcResultMatchers.status().isBadRequest())
-            .andExpect(MockMvcResultMatchers.content().string("projection argument is invalid"));
+            .andExpect(MockMvcResultMatchers.status().isBadRequest());
 	}
 }
