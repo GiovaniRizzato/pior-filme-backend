@@ -1,0 +1,90 @@
+2024-03-27 10:07:38.187738-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:07:38.223737-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:07:38.240738-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:07:38.846503-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:08:44.565554-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:08:44.604553-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:08:44.620551-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:08:45.172107-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:40:55.167005-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:40:55.208901-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:40:55.223904-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:40:55.760934-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:46:36.678730-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:46:36.723728-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:46:36.738726-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:46:37.266896-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:48:32.770203-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:48:32.811904-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:48:32.826906-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:48:33.355821-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:49:19.154958-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table custom_movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table custom_movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:49:19.203954-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOM_MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FKeerivivayjl9stjvgpy0f32ln foreign key (movie_id) references custom_movie [42102-224]
+2024-03-27 10:49:19.218896-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOM_MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FKfyb93tm9g4kfikkx1mcpdu0ea foreign key (movie_id) references custom_movie [42102-224]
+2024-03-27 10:49:19.788006-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOM_MOVIE" not found; SQL statement:
+insert into custom_movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]
+2024-03-27 10:50:44.923939-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:51:22.724257-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:53:16.574722-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table movie (is_winner boolean not null, [*]year integer, id bigint not null, title varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table movie (is_winner boolean not null, year integer, id bigint not null, title varchar(255), primary key (id)) [42001-224]
+2024-03-27 10:53:16.618714-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_producers add constraint FK8k0e0ynnal6yrxhpb8gs3w15w foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:53:16.633715-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+alter table if exists movie_studios add constraint FK7t1tep33a7t7pbqu9wk8hvq19 foreign key (movie_id) references movie [42102-224]
+2024-03-27 10:53:17.179670-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found; SQL statement:
+insert into movie (is_winner,title,year,id) values (?,?,?,?) [42102-224]

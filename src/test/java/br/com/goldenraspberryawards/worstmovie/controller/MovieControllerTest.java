@@ -22,7 +22,31 @@ class MovieControllerTest {
     @Mock
     private Resource mockResource;
 
-    
+    @Test
+	void getMovieListTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/movies")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].title").value("Hercules"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].year").value("1983"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].studios").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].studios[0]").value("MGM"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].studios[1]").value("United Artists"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].studios[2]").value("Cannon Films"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].producers").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].producers[0]").value("Menahem Golan"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].producers[1]").value("Yoram Globus"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[0].winner").value("false"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].title").value("Tough Guys Don't Dance"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].year").value("1987"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].studios").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].studios[0]").value("Cannon Films"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].producers").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].producers[0]").value("Menahem Golan"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].producers[1]").value("Yoram Globus"))
+            .andExpect(MockMvcResultMatchers.jsonPath("movies[1].winner").value("true"));
+	}
 
 	@Test
 	void getProducerWithBiggestConsecutiveGapTest() throws Exception {

@@ -1,23 +1,29 @@
 package br.com.goldenraspberryawards.worstmovie.model;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Movie implements Comparable<Movie>{
-    private int year;
-    private String title;
-    private Collection<String> studios;
-    private Collection<String> producers;
-    private boolean isWinner;
+@Entity
+public class Movie{
 
-    @Override
-    public int compareTo(Movie other) {
-        return this.year - other.year;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)     
+    private Integer id;
+
+    private Integer year;
+    private String title;
+    private Boolean winner;
+
+    @ElementCollection
+    private Set<String> studios = new HashSet<>();
+    @ElementCollection
+    private Set<String> producers = new HashSet<>();
 }

@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.goldenraspberryawards.worstmovie.model.ProducerMinMaxGap;
+import br.com.goldenraspberryawards.worstmovie.model.DTO.DTO;
+import br.com.goldenraspberryawards.worstmovie.model.DTO.MovieList;
 import br.com.goldenraspberryawards.worstmovie.service.MovieService;
 
 @RestController
@@ -17,13 +18,22 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping("/movies")
-    public ResponseEntity<ProducerMinMaxGap> getMovies(@RequestParam String projection) {
-        if(projection.equals("min-max-win-interval-for-producers")) {
+    public ResponseEntity<DTO> getMovies(@RequestParam(required = false) String projection) {
+        if (projection == null) {
             return ResponseEntity
                 .status(HttpStatus.OK)                 
-                .body(movieService.getBiggestProducerWinningGap());
+                .body(new MovieList(movieService.getAllMovies()));
         } else {
-            return ResponseEntity.badRequest().build();
-        }
+            switch (projection) {
+                case "min-max-win-interval-for-producers": {
+                    return ResponseEntity
+                        .status(HttpStatus.OK)                 
+                        .body(movieService.getBiggestProducerWinningGap());
+                }
+                default: {
+                    return ResponseEntity.badRequest().build();
+                }  
+            }
+        }        
     }
 }

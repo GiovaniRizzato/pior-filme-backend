@@ -1,25 +1,28 @@
 package br.com.goldenraspberryawards.worstmovie.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import br.com.goldenraspberryawards.worstmovie.model.Movie;
-import br.com.goldenraspberryawards.worstmovie.model.ProducerMinMaxGap;
 import br.com.goldenraspberryawards.worstmovie.model.ProducerWinningGap;
+import br.com.goldenraspberryawards.worstmovie.model.DTO.ProducerMinMaxGap;
+import br.com.goldenraspberryawards.worstmovie.repository.MovieRepository;
 import jakarta.annotation.PostConstruct;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
 @Service
 public class MovieService {
-	private final List<Movie> movies = new ArrayList<>();
+
+    @Autowired
+    private MovieRepository movieRepository;
 
     @Value("classpath:csv/movielist.csv")
     private Resource resource;
@@ -46,12 +49,15 @@ public class MovieService {
                     movie.setWinner(false);
                 }   
 
-                this.movies.add(movie);
+                this.movieRepository.save(movie);
             }
-            Collections.sort(this.movies);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Collection<Movie> getAllMovies() {
+        return this.movieRepository.findAll();
     }
 
     private ProducerMinMaxGap searchProducerWinningGaps (){
@@ -59,15 +65,16 @@ public class MovieService {
         int biggestConsecutiveWinGap = 0;
         final List<ProducerWinningGap> biggestProducerWinningGap = new LinkedList<>();
         final List<ProducerWinningGap> smallestProducerWinningGap = new LinkedList<>();
-        for (int i=0; i<(this.movies.size() - 1); i++){     
-            final Movie previousWinEntry = this.movies.get(i);
-            if (!previousWinEntry.isWinner()){
+        final List<Movie> movies = this.movieRepository.findAllByOrderByYearAsc();
+        for (int i=0; i<(movies.size() - 1); i++){     
+            final Movie previousWinEntry = movies.get(i);
+            if (!previousWinEntry.getWinner()){
                 continue;
             }
             for (String producer: previousWinEntry.getProducers()){
-                for (int j=(i+1); j<this.movies.size(); j++){
-                    final Movie followingWinEntry = this.movies.get(j);
-                    if (!followingWinEntry.isWinner()){
+                for (int j=(i+1); j<movies.size(); j++){
+                    final Movie followingWinEntry = movies.get(j);
+                    if (!followingWinEntry.getWinner()){
                         continue;
                     }
                     if (followingWinEntry.getProducers().contains(producer)) {
